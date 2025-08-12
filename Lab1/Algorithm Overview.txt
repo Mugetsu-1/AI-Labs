@@ -1,0 +1,60 @@
+Algorithm Overview
+
+   1. Initialize the board with 9 empty spaces.
+
+   2. Display board positions for the player's reference.
+
+   3. Loop through turns until a win or tie occurs:
+
+        AI makes its move based on priority:
+
+            Win if possible.
+
+            Block the opponent if they can win next.
+
+            Take center if available.
+
+            Choose a corner.
+
+            Choose any available space.
+
+        Check for AI win or tie.
+
+        Human player inputs a move.
+
+        Check for player win or tie.
+
+   4.  After a game ends, ask to play again.
+
+   5.  If user chooses not to continue, exit the game.
+
+pseudo code: 
+
+FUNCTION PlayGame():
+    INIT board with 9 empty cells
+    SET AI = 'X', Human = 'O'
+    WHILE True:
+        CALL AI_Move(board, AI, Human)
+        IF AI wins OR board is full: END game
+
+        CALL Human_Move(board, Human)
+        IF Human wins OR board is full: END game
+
+FUNCTION AI_Move(board, AI, Human):
+    TRY to win
+    ELSE block Human win
+    ELSE take center
+    ELSE take corner
+    ELSE take any empty spot
+
+FUNCTION Human_Move(board, Human):
+    LOOP UNTIL valid move:
+        GET input and apply move
+
+FUNCTION IsWinner(board):
+    CHECK all win patterns
+
+FUNCTION Main():
+    LOOP:
+        CALL PlayGame()
+        IF user says no: EXIT
